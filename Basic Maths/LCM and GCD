@@ -1,0 +1,24 @@
+class Solution {
+    static long gcd(long a, long b)
+{
+    if(b==0)
+     return a;
+    
+    return gcd(b, a%b);
+}
+    
+    static Long[] lcmAndGcd(Long A , Long B) {
+        // code here
+        Long arr[] = new Long[2];
+        Long l,g;
+        
+        
+        g=gcd(A,B);
+        arr[0]= (A*B)/g;
+        arr[1]=g;
+        
+        return arr;
+        
+        
+    }
+};
