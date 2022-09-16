@@ -1,0 +1,29 @@
+class Solution {
+    static String armstrongNumber(int n){
+        // code here
+        int x;
+        int count=0;
+        int temp=n;
+        int a=n;
+        
+        while(temp!=0)
+        {
+            count++;
+            temp=temp/10;
+        }
+        
+        int sum=0;
+        while(n!=0)
+        {
+            x=n%10;
+            sum += Math.pow(x,count);
+            
+            n=n/10;
+        }
+        
+        if(a==sum)
+         return "Yes";
+        else
+         return "No";
+    }
+}
