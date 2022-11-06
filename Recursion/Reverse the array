@@ -1,0 +1,40 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static void reverse(int s, int arr[], int e)
+    {
+        if(s>=e)
+        return;
+        
+        
+        
+        int a=arr[s];
+        arr[s]=arr[e];
+        arr[e]=a;
+        
+        reverse(s+1,arr,e-1);
+    }
+    
+	public static void main (String[] args) {
+		//code
+		Scanner s = new Scanner(System.in);
+		int T = s.nextInt();
+		for(int i=0;i<T;i++)
+		{
+		    int N=s.nextInt();
+		    int[] A = new int[N];
+		    for(int j=0;j<N;j++)
+		    {
+		        A[j]=s.nextInt();
+		    }
+		    reverse(0,A,N-1);
+		    for(int k=0;k<N;k++)
+		    {
+		        System.out.print(A[k]+" ");
+		    }
+		}
+		
+	}
+}
