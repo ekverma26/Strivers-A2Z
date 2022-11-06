@@ -1,0 +1,20 @@
+class Solution {
+    int p(int i, String s, int n)
+    {
+        if(i>=n/2)
+        return 1;
+        
+        if(s.charAt(i)!=s.charAt(n-1-i))
+        return 0;
+        
+        return p(i+1,s,n);
+    }
+    
+    int isPalindrome(String S) {
+        // code here
+        int n =S.length();
+        int a =p(0,S,n);
+        return a;
+    
+    }
+};
