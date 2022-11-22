@@ -1,0 +1,31 @@
+class Solution{
+    
+   
+    // Function for finding maximum and value pair
+    public static int lenOfLongSubarr (int arr[], int n, int k) {
+        //Complete the function
+        
+        int sum=0,l=0;
+        HashMap<Integer,Integer> map= new HashMap<>();
+        
+        for(int i=0;i<n;i++)
+        {
+            sum+=arr[i];
+            
+            if(sum==k)
+                l=i+1;
+            
+            if(!map.containsKey(sum))
+                {map.put(sum,i);}
+                
+            if(map.containsKey(sum-k))
+            {
+                if(l<(i-map.get(sum-k)))
+                    {l=i-map.get(sum-k);}
+            }
+        }
+        return l;
+    }
+    
+    
+}
