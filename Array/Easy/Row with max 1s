@@ -1,0 +1,35 @@
+class Solution {
+    int first(int arr[], int low, int high)
+    {
+        if(high>=low)
+        {
+            int mid = low + (high-low)/2;
+            
+            if((mid==0 || arr[mid-1]==0 ) && arr[mid]==1)
+                return mid;
+                
+            else if(arr[mid]==0)
+                return first(arr,mid+1,high);
+            else
+                return first(arr,low,mid-1);
+        }
+        return -1;
+    }
+    int rowWithMax1s(int arr[][], int n, int m) {
+        // code here
+        int row_index=-1,max=-1;
+        int index;
+        
+        for(int i=0;i<n;i++)
+        {
+            index = first(arr[i], 0, m-1);
+            
+            if(index!=-1 && (m-index)>max)
+            {
+                max=m-index;
+                row_index=i;
+            }
+        }
+        return row_index;
+    }
+}
